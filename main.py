@@ -17,16 +17,16 @@ def add_workout():
 
 
 canvas = Canvas(width=256, height=256, bg="white", highlightthickness=0)
-logo = PhotoImage(file="ADD.png")
+logo = PhotoImage(file="meditation.png")
 canvas.create_image(128, 128, image=logo)
 canvas.grid(column=0, row=0, pady=30)
 
 
-do_label = Label(text="\nHey Lynne, what did you do today?\n", font=("courier", 13, "normal"), fg="#2F5D62")
+do_label = Label(text="\nHey Lynne, what did you do today?\n", font=("courier", 13, "normal"))
 do_label.grid(column=0, row=2,  padx=100)
 do_label.config(bg="white")
-today_workout = Text(bg="#F9F9F9", borderwidth=0, highlightthickness=0, width=50, height=4, insertbackground="#39A2DB",
-                     selectbackground="#FFEAC9", fg="black", font=("courier", 13, "normal"))
+today_workout = Text(bg="#F8F7DE", borderwidth=0, highlightthickness=0, width=48, height=4, insertbackground="#39A2DB",
+                     selectbackground="#FFEAC9", fg="black")
 today_workout.grid(column=0, row=3, columnspan=2, pady=5)
 
 add_image = PhotoImage(file="plus.png")
