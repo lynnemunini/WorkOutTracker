@@ -1,6 +1,38 @@
 import requests
 import os
+from tkinter import *
 from datetime import datetime
+window = Tk()
+window.geometry("500x600")
+window.title("WorkOut Tracker")
+window.config(bg="white")
+do = None
+# Add workout function
+
+
+def add_workout():
+    global do
+    do = today_workout.get("1.0", END)
+    window.destroy()
+
+
+canvas = Canvas(width=256, height=256, bg="white", highlightthickness=0)
+logo = PhotoImage(file="ADD.png")
+canvas.create_image(128, 128, image=logo)
+canvas.grid(column=0, row=0, pady=30)
+
+
+do_label = Label(text="\nHey Lynne, what did you do today?\n", font=("courier", 13, "normal"), fg="#2F5D62")
+do_label.grid(column=0, row=2,  padx=100)
+do_label.config(bg="white")
+today_workout = Text(bg="#F9F9F9", borderwidth=0, highlightthickness=0, width=50, height=4, insertbackground="#39A2DB",
+                     selectbackground="#FFEAC9", fg="black", font=("courier", 13, "normal"))
+today_workout.grid(column=0, row=3, columnspan=2, pady=5)
+
+add_image = PhotoImage(file="plus.png")
+add_image_button = Button(image=add_image, bg="white", highlightthickness=0, border=0, command=add_workout)
+add_image_button.grid(column=0, row=4, pady=30)
+window.mainloop()
 today = datetime.now()
 date = today.strftime("%d/%m/%y")
 now_time = today.time()
@@ -15,7 +47,6 @@ headers = {
     "x-app-key": apikey,
 
 }
-do = input("Hey Lynne, what did you do today? ")
 
 nutritionix_config = {
      "query": do,
